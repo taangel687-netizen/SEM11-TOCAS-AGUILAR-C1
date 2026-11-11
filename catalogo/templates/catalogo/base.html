@@ -1,0 +1,10 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}Campus Tech{% endblock %} · Semana 11</title>
+<link rel="stylesheet" href="{% static 'catalogo/styles.css' %}"></head>
+<body><header><a class="brand" href="{% url 'catalogo:home' %}"><span class="brand-icon">C</span> campus<span>tech</span></a>
+<nav aria-label="Navegación principal"><a href="{% url 'catalogo:home' %}" {% if request.resolver_match.url_name == 'home' %}aria-current="page"{% endif %}>Inicio</a><a href="{% url 'catalogo:lista' %}" {% if request.resolver_match.url_name == 'lista' %}aria-current="page"{% endif %}>Catálogo</a></nav><span class="course">UNCP / WEB 11</span></header>
+<main>{% block content %}{% endblock %}</main>
+<footer><span>Campus Tech · Desarrollo de Aplicaciones Web</span><span>Ingeniería de Sistemas / UNCP · {{ fecha|date:"d M Y" }}</span></footer></body></html>

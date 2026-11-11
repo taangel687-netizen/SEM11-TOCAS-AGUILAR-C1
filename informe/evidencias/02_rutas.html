@@ -1,0 +1,24 @@
+<!doctype html><meta charset="utf-8"><style>body{margin:0;background:#f6f8f4;color:#172c27;font:16px Arial;padding:32px}h1{font-size:25px}p{color:#53675e}pre{background:white;border:1px solid #cfdbd2;border-radius:10px;padding:22px;font:18px/1.5 Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere}</style><h1>Semana 11 · 02 rutas</h1><p>Registro de ejecución local y código fuente del proyecto · 11 de noviembre de 2026</p><pre>from django.contrib import admin
+from django.urls import include, path
+
+urlpatterns = [
+    path(&#x27;admin/&#x27;, admin.site.urls),
+    path(&#x27;&#x27;, include(&#x27;catalogo.urls&#x27;)),
+]
+
+# catalogo/urls.py
+from django.urls import path
+from . import views
+
+app_name = &#x27;catalogo&#x27;
+urlpatterns = [
+    path(&#x27;&#x27;, views.home, name=&#x27;home&#x27;),
+    path(&#x27;catalogo/&#x27;, views.ProductoListView.as_view(), name=&#x27;lista&#x27;),
+]
+&gt; python manage.py shell -c from django.urls import reverse,resolve; print(reverse(&#x27;catalogo:home&#x27;)); print(re
+    verse(&#x27;catalogo:lista&#x27;)); print(resolve(&#x27;/catalogo/&#x27;).func.view_class.__name__)
+7 objects imported automatically (use -v 2 for details).
+
+/
+/catalogo/
+ProductoListView</pre>

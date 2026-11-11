@@ -1,0 +1,11 @@
+{% extends 'catalogo/base.html' %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+<section class="hero"><div><p class="eyebrow">TECNOLOGÍA PARA TU SIGUIENTE PROYECTO</p>
+<h1>Tu espacio.<br>Tu próximo <em>nivel.</em></h1>
+<p class="intro">Una selección de herramientas para estudiar, crear y desarrollar tus mejores ideas.</p>
+<a class="button" href="{% url 'catalogo:lista' %}">Explorar el catálogo <span>↗</span></a>
+<div class="stats"><div><strong>{{ total }}</strong><span>productos en catálogo</span></div><div><strong>{{ disponibles }}</strong><span>disponibles hoy</span></div></div></div>
+<div class="visual" aria-label="Ilustración de una laptop"><div class="orbit"></div><div class="laptop"><div class="screen"><span>CREA SIN LÍMITES</span><b>&lt;/&gt;</b><small>El próximo proyecto empieza aquí.</small></div><div class="keyboard"></div></div><span class="visual-label">EQUIPA TU CREATIVIDAD</span></div></section>
+<section class="about"><p class="eyebrow">DE LA IDEA A LA PRÁCTICA</p><h2>Un catálogo construido con Django</h2><p>Explora productos, busca por nombre y consulta su disponibilidad. Los datos se guardan en SQLite mediante el ORM de Django.</p><div class="pill-row"><span>Modelo Producto</span><span>Vistas FBV y CBV</span><span>Plantillas con herencia</span></div></section>
+{% endblock %}

@@ -1,0 +1,20 @@
+<!doctype html><meta charset="utf-8"><style>body{margin:0;background:#f6f8f4;color:#172c27;font:16px Arial;padding:32px}h1{font-size:25px}p{color:#53675e}pre{background:white;border:1px solid #cfdbd2;border-radius:10px;padding:22px;font:18px/1.5 Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere}</style><h1>Semana 11 · 05 orm</h1><p>Registro de ejecución local y código fuente del proyecto · 11 de noviembre de 2026</p><pre>&gt; python manage.py showmigrations catalogo
+catalogo
+ [X] 0001_initial
+&gt; python manage.py makemigrations --check --dry-run
+No changes detected
+&gt; python manage.py migrate --plan
+Planned operations:
+  No planned migration operations.
+&gt; python manage.py poblar_productos
+0 creados; 8 productos en total.
+&gt; python manage.py shell -c from catalogo.models import Producto; todos=Producto.objects.all(); print(&#x27;all():&#x27;
+    , list(todos.values_list(&#x27;nombre&#x27;,flat=True))); print(&#x27;filter():&#x27;, list(Producto.objects.filter(activo=Tru
+    e,stock__gt=0).values_list(&#x27;nombre&#x27;,flat=True))); print(&#x27;Total:&#x27;,todos.count())
+7 objects imported automatically (use -v 2 for details).
+
+all(): [&#x27;audífonos de estudio&#x27;, &#x27;base para laptop&#x27;, &#x27;hub usb c&#x27;, &#x27;laptop para desarrollo&#x27;, &#x27;monitor de 24 pulg
+    adas&#x27;, &#x27;mouse inalámbrico&#x27;, &#x27;teclado mecánico&#x27;, &#x27;webcam full hd&#x27;]
+filter(): [&#x27;audífonos de estudio&#x27;, &#x27;base para laptop&#x27;, &#x27;laptop para desarrollo&#x27;, &#x27;monitor de 24 pulgadas&#x27;, &#x27;mo
+    use inalámbrico&#x27;, &#x27;teclado mecánico&#x27;]
+Total: 8</pre>

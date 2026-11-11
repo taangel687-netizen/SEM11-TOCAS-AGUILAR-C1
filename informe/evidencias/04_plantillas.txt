@@ -1,0 +1,29 @@
+# Fragmentos exactos de base.html
+{% load static %}
+{% block title %}
+{% endblock %}
+{% static 'catalogo/styles.css' %}
+{% url 'catalogo:home' %}
+{% url 'catalogo:home' %}
+{% if request.resolver_match.url_name == 'home' %}
+{% endif %}
+{% url 'catalogo:lista' %}
+{% if request.resolver_match.url_name == 'lista' %}
+{% endif %}
+{% block content %}
+{% endblock %}
+
+# Fragmentos exactos de catalogo.html
+{% extends 'catalogo/base.html' %}
+{% block title %}
+{% endblock %}
+{% block content %}
+{{ fecha|date:"d/m/Y" }}
+{% for producto in productos %}
+{% elif producto.stock %}
+{{ producto.nombre|title }}
+{{ producto.precio|floatformat:2 }}
+{{ producto.creado|date:"d M Y" }}
+{% empty %}
+{% endfor %}
+{% endblock %}
